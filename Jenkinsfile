@@ -1,7 +1,7 @@
 pipeline {
      agent any
      stages {
-         stage('Build and send initial slack message') {
+         stage('Build') {
               steps {
                   sh 'echo Building...'
               }
