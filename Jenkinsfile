@@ -33,7 +33,7 @@ pipeline {
          stage('Push Docker Image') {
               steps {
                   withDockerRegistry([url: "", credentialsId: "dockerhub"]) {
-                      sh "docker tag isslocator isslocator gwtm11/isslocator"
+                      sh "docker tag isslocator gwtm11/isslocator"
                       sh 'docker push gwtm11/isslocator'
                   }
               }
