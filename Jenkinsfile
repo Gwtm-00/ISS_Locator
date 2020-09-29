@@ -31,13 +31,24 @@ pipeline {
               }
          }
          stage('Push Docker Image') {
-              steps {
-                  withDockerRegistry([url: "", credentialsId: "docker-hub"]) {
-                      sh "docker tag isslocator gwtm11/isslocator"
-                      sh 'docker push gwtm11/isslocator'
-                  }
-              }
+                steps {
+                   withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]){
+            //  sh '''
+            //      docker build -t andresaaap/cloudcapstone:$BUILD_ID .
+            //     '''
+                    sh "docker tag isslocator gwtm11/isslocator"
+                    sh 'docker push gwtm11/isslocator'
+                 }
+             }
          }
+        //  stage('Push Docker Image') {
+        //       steps {
+        //           withDockerRegistry([url: "", credentialsId: "docker-hub"]) {
+        //               sh "docker tag isslocator gwtm11/isslocator"
+        //               sh 'docker push gwtm11/isslocator'
+        //           }
+        //       }
+        //  }
          stage('Deploying') {
               steps{
                   echo 'Deploying to AWS...'
