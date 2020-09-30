@@ -40,10 +40,18 @@ pipeline {
                  }
              }
          }
+         stage('create kube config file'){
+             steps{
+                 withAWS(credentials: 'aws-static', region: 'us-west-2') {
+                     sh "aws eks --region us-west-2 update-kubeconfig --gwtmUdacityCapstone"
+                 }
+             }
+         }
          stage('Deploying to EKS') {
               steps{
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'aws-static', region: 'us-west-2') {
+                      
                       sh "aws eks --region us-west-2 update-kubeconfig --name gwtmUdacityCapstone"
                       sh "kubectl config use-context arn:aws:eks:us-west-2:307973489560:cluster/gwtmUdacityCapstone"
                       sh "kubectl apply -f deployment.yaml"
