@@ -40,7 +40,7 @@ pipeline {
                  }
              }
          }
-         stage('Deploying') {
+         stage('Deploying to EKS') {
               steps{
                   echo 'Deploying to AWS...'
                   withAWS(credentials: 'aws-static', region: 'us-west-2') {
