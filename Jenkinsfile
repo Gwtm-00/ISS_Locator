@@ -43,7 +43,7 @@ pipeline {
          stage('Deploying to EKS') {
               steps{
                   echo 'Deploying to AWS...'
-                  withAWS(credentials: 'aws-static', region: 'us-west-2') {
+                  withAWS(credentials: 'capstone', region: 'us-west-2') {
                       sh "aws eks --region us-west-2 update-kubeconfig --name gwtmUdacityCapstone"
                       sh "kubectl config use-context arn:aws:eks:us-west-2:307973489560:cluster/gwtmUdacityCapstone"
                       sh "kubectl apply -f deployment.yaml"
@@ -57,7 +57,7 @@ pipeline {
          stage('Checking if app is up') {
             steps {
                 echo 'Checking if app is up...'
-                withAWS(credentials: 'aws-static', region: 'us-west-2') {
+                withAWS(credentials: 'capstone', region: 'us-west-2') {
                     sh 'curl aea02ae0dfe5f483f9980cc9b59326bf-613299129.us-west-2.elb.amazonaws.com:80'
                 }
 
