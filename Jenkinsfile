@@ -53,8 +53,7 @@ pipeline {
                       sh "kubectl get service/isslocator"
                   }
               }
-
-
+         }
          stage('Checking if app is up') {
             steps {
                 echo 'Checking if app is up...'
