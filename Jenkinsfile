@@ -40,7 +40,7 @@ pipeline {
                  }
              }
          }
-         stage('create kube config file'){
+         stage('creating kube config file'){
              steps{
                  withAWS(credentials: 'aws-static', region: 'us-west-2') {
                      sh "aws eks --region us-west-2 update-kubeconfig --gwtmUdacityCapstone"
