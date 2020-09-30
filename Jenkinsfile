@@ -36,6 +36,7 @@ pipeline {
             //  sh '''
             //      docker build -t andresaaap/cloudcapstone:$BUILD_ID .
             //     '''
+                    docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
                     sh "docker tag isslocator gwtm11/isslocator"
                     sh 'docker push gwtm11/isslocator'
                  }
