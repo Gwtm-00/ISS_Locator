@@ -54,7 +54,7 @@ pipeline {
                       
                       sh "aws eks --region us-west-2 update-kubeconfig --name gwtmUdacityCapstone"
                       sh "kubectl config use-context arn:aws:eks:us-west-2:307973489560:cluster/gwtmUdacityCapstone"
-                    //   sh "kubectl apply -f deployment.yaml"
+                      sh "kubectl apply -f deployment.yaml"
                       sh "kubectl get nodes"
                       sh "kubectl get deployments"
                       sh "kubectl get pod -o wide"
