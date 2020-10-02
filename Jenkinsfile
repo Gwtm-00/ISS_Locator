@@ -66,7 +66,7 @@ pipeline {
             steps {
                 echo 'Checking if app is up...'
                 withAWS(credentials: 'aws-static', region: 'us-west-2') {
-                    sh 'curl aea02ae0dfe5f483f9980cc9b59326bf-613299129.us-west-2.elb.amazonaws.com:80'
+                    sh 'curl F7B65FAC3D7F4C2AC056D972154BD25D.yl4.us-west-2.eks.amazonaws.com:80'
                 }
 
               }
