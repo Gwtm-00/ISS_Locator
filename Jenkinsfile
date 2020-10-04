@@ -11,7 +11,7 @@ pipeline {
                 script {
                     docker.image('hadolint/hadolint:latest-debian').inside() {
                             sh 'hadolint ./Dockerfile | tee -a hadolint_lint.txt'
-                            sh 'make lint'
+                            sh 'hadolint ./Dockerfile'
                             sh '''
                                 lintErrors=$(stat --printf="%s"  hadolint_lint.txt)
                                 
