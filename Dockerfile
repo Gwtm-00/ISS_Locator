@@ -6,7 +6,7 @@ WORKDIR /app
 
 ## Step 2:
 # Copy source code to working directory
-COP . /app/
+COPY . /app/
 
 ## Step 3:
 # Install packages from requirements.txt
