@@ -38,21 +38,5 @@ Note: Make sure, AWS users has all required permissions to read and write EKS cl
 
 #### Deployment
 
-APP -----> Dockerize -----> Push to docker hub
- |
- |
- V 
-Git-------> Jenkins ------------> Blueocean pipline  
-                                               |
-                                               |
-                                               V   
-docker push  <------ Docker build<-------  Linting
- |
- |
- V 
- EKS Deployment -----> Cluster Creation ----> 
-                                            |
-                                            |
-                                            V
-Docker prune<------- (200 OK)<-------Check app
+![CI/CD Pipeline](screenshots/pipeline.png)
 
