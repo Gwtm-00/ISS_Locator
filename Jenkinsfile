@@ -25,7 +25,6 @@ pipeline {
                                 fi
                             '''
                     }
-                sh 'make lint'
                 }
             }
         }     
