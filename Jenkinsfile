@@ -23,7 +23,7 @@ pipeline {
                 //             '''
                 //     }
                 sh 'make lint'
-                }
+                // }
             }
         }     
          stage('Build Docker Image') {
